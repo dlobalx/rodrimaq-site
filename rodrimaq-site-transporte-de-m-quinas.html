@@ -314,9 +314,9 @@
     #atuacao .section-sub { color: var(--muted); }
     .atuacao-layout {
       display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 40px;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
     }
     .atuacao-left p {
       font-size: 15px;
@@ -397,7 +397,7 @@
     }
     .atuacao-card-cta:hover { opacity: .88; }
     @media (max-width: 860px) {
-      .atuacao-layout { grid-template-columns: 1fr; }
+      .atuacao-layout { grid-template-columns: 1fr; gap: 32px; }
     }
     .map-note { display: none; }
 
@@ -515,14 +515,120 @@
     }
     .wa-float svg { width: 30px; height: 30px; fill: var(--white); }
 
+    /* ── HAMBURGER BUTTON ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+      z-index: 200;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: transform .25s, opacity .25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── MOBILE DRAWER ── */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,.97);
+      z-index: 150;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: #d1d5db;
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 600;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      width: 80%;
+      text-align: center;
+      transition: color .2s;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a:hover, .mobile-menu a:active { color: var(--yellow); }
+    .mobile-menu .mobile-cta {
+      margin-top: 18px;
+      background: var(--yellow);
+      color: #111 !important;
+      border-radius: 8px;
+      padding: 16px 36px !important;
+      font-weight: 800 !important;
+      border-bottom: none !important;
+      width: auto !important;
+    }
+    .mobile-menu .mobile-close {
+      position: absolute;
+      top: 28px;
+      right: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+    .mobile-menu .mobile-close span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #d1d5db;
+      border-radius: 2px;
+    }
+    .mobile-menu .mobile-close span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+    .mobile-menu .mobile-close span:nth-child(2) { transform: translateY(-3.5px) rotate(-45deg); }
+
     /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       nav ul { display: none; }
-      nav { justify-content: center; }
+      .nav-hamburger { display: flex; }
+      nav { justify-content: space-between; }
+      .hero-stats { gap: 20px; }
+      .stat-num { font-size: 26px; }
+      .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .diff-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .step:not(:last-child)::after { display: none; }
+    }
+    @media (max-width: 480px) {
+      nav { justify-content: space-between; padding: 0 16px; }
+      .logo img { height: 70px; }
       .areas-grid { grid-template-columns: 1fr; }
-      .hero-stats { gap: 24px; }
-      .cta-box { padding: 32px 20px; }
-      section { padding: 52px 16px; }
+      .hero-stats { gap: 16px; }
+      .stat-num { font-size: 22px; }
+      .stat-label { font-size: 12px; }
+      .cta-box { padding: 28px 16px; }
+      section { padding: 48px 16px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .clients-grid { gap: 8px; }
+      .client-badge { padding: 8px 14px; font-size: 13px; }
+      .btn-wa-lg { font-size: 16px; padding: 16px 28px; }
+      .hero h1 { letter-spacing: -.5px; }
+      .hero p { font-size: 14px; }
+      .btn-primary, .btn-secondary { font-size: 14px; padding: 13px 22px; }
     }
   </style>
 </head>
@@ -542,8 +648,27 @@
       <li><a href="#clientes">Clientes</a></li>
       <li><a href="https://wa.me/5511996287810?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20transporte%20de%20m%C3%A1quinas." class="nav-cta">Orçamento</a></li>
     </ul>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 </header>
+
+<!-- MENU MOBILE -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu de navegação">
+  <button class="mobile-close" id="mobileClose" aria-label="Fechar menu">
+    <span></span>
+    <span></span>
+  </button>
+  <a href="#servicos">Serviços</a>
+  <a href="#diferenciais">Diferenciais</a>
+  <a href="#como-funciona">Como Funciona</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#clientes">Clientes</a>
+  <a href="https://wa.me/5511996287810?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20transporte%20de%20m%C3%A1quinas." class="mobile-cta">🚛 Pedir Orçamento</a>
+</div>
 
 
 <section class="hero" id="inicio">
@@ -889,5 +1014,40 @@
   <svg><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.12.554 4.112 1.522 5.845L.057 23.888c-.073.282.194.547.476.47l6.086-1.597A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.84a9.805 9.805 0 01-5.014-1.376l-.36-.214-3.713.974.99-3.626-.234-.373A9.808 9.808 0 012.16 12C2.16 6.55 6.55 2.16 12 2.16S21.84 6.55 21.84 12 17.45 21.84 12 21.84z"></path></svg>
 </a>
 
+<script>
+  (function () {
+    var btn = document.getElementById('navHamburger');
+    var menu = document.getElementById('mobileMenu');
+    var closeBtn = document.getElementById('mobileClose');
+
+    function openMenu() {
+      menu.classList.add('open');
+      btn.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      menu.classList.remove('open');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', function () {
+      if (menu.classList.contains('open')) { closeMenu(); } else { openMenu(); }
+    });
+    closeBtn.addEventListener('click', closeMenu);
+
+    // Fechar ao clicar num link do menu
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Fechar ao pressionar Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('open')) { closeMenu(); }
+    });
+  })();
+</script>
 </body>
 </html>
