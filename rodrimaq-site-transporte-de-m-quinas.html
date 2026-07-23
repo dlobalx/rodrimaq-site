@@ -57,13 +57,15 @@
       justify-content: space-between;
     }
     .logo {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.5px;
       text-decoration: none;
+      display: flex;
+      align-items: center;
     }
-    .logo span { color: var(--yellow); }
+    .logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
     nav ul {
       list-style: none;
       display: flex;
@@ -412,7 +414,9 @@
 
 <header>
   <nav>
-    <a href="#" class="logo">RODRI<span>MAQ</span></a>
+    <a href="#" class="logo">
+      <img src="Fotos/logo.jpeg" alt="Rodrimaq — Transporte de Máquinas" width="160" height="48">
+    </a>
     <ul>
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#diferenciais">Diferenciais</a></li>
