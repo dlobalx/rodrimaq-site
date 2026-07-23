@@ -309,21 +309,28 @@
 
     /* ── ATUAÇÃO ── */
     #atuacao { background: var(--dark); }
+    .areas-box {
+      background: #000;
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 0;
+    }
     .areas-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 14px;
     }
     .area-pill {
       display: flex;
       align-items: center;
       gap: 10px;
-      background: rgba(0,0,0,.12);
-      border: 1px solid rgba(0,0,0,.15);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
       border-radius: 8px;
       padding: 14px 18px;
       font-size: 14px;
       font-weight: 600;
+      color: var(--white);
     }
     .area-pill::before {
       content: "📍";
@@ -341,11 +348,10 @@
     }
 
     /* ── GALERIA ── */
-    #galeria { background: var(--yellow); }
-    #galeria .section-title { color: #111; }
-    #galeria .section-sub { color: #333; }
-    #galeria .section-tag { color: #111; opacity: .7; }
-    #galeria .gallery-item { border-color: rgba(0,0,0,.15); }
+    #galeria { background: var(--dark2); }
+    #galeria .section-title { color: var(--white); }
+    #galeria .section-sub { color: #9ca3af; }
+    #galeria .section-tag { color: var(--yellow); }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -682,17 +688,19 @@
     <div class="section-tag" style="color:#e86c00;">Onde atuamos</div>
     <div class="section-title" style="color:#fff;">Cobertura em Todo o Brasil</div>
     <div class="section-sub" style="color:#9ca3af;">Com foco na Grande São Paulo, Jundiaí e interior do estado, atendemos também todo o território nacional.</div>
-    <div class="areas-grid">
-      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Grande São Paulo</div>
-      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Jundiaí e Região</div>
-      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Interior de SP</div>
-      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Litoral Paulista</div>
-      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Sul do Brasil</div>
-      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Região Sudeste</div>
-      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Centro-Oeste</div>
-      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Todo o Brasil</div>
+    <div class="areas-box">
+      <div class="areas-grid">
+        <div class="area-pill">Grande São Paulo</div>
+        <div class="area-pill">Jundiaí e Região</div>
+        <div class="area-pill">Interior de SP</div>
+        <div class="area-pill">Litoral Paulista</div>
+        <div class="area-pill">Sul do Brasil</div>
+        <div class="area-pill">Região Sudeste</div>
+        <div class="area-pill">Centro-Oeste</div>
+        <div class="area-pill">Todo o Brasil</div>
+      </div>
+      <div class="map-note" style="background:var(--yellow);color:#111;margin-top:20px;">🚛 Precisando de transporte fora de SP? Entre em contato — atendemos todo o Brasil!</div>
     </div>
-    <div class="map-note" style="background:var(--yellow);color:#111;">🚛 Precisando de transporte fora de SP? Entre em contato — atendemos todo o Brasil!</div>
   </div>
 </section>
 
