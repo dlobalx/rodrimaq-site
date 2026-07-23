@@ -263,10 +263,10 @@
     .diff-card p { font-size: 14px; color: #9ca3af; line-height: 1.6; }
 
     /* ── COMO FUNCIONA ── */
-    #como-funciona { background: var(--dark); }
-    #como-funciona .section-title { color: var(--white); }
-    #como-funciona .section-sub { color: #9ca3af; }
-    #como-funciona .section-tag { color: var(--yellow); }
+    #como-funciona { background: var(--light); }
+    #como-funciona .section-title { color: var(--dark); }
+    #como-funciona .section-sub { color: var(--muted); }
+    #como-funciona .section-tag { color: var(--yellow-dark); }
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -300,15 +300,15 @@
       justify-content: center;
       margin: 0 auto 16px;
     }
-    .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
-    .step p { font-size: 13px; color: #9ca3af; }
+    .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--dark); }
+    .step p { font-size: 13px; color: var(--muted); }
     @media (max-width: 640px) {
       .step:not(:last-child)::after { display: none; }
       .steps-grid { gap: 8px; }
     }
 
     /* ── ATUAÇÃO ── */
-    #atuacao { background: var(--yellow); }
+    #atuacao { background: var(--dark); }
     .areas-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -678,20 +678,20 @@
 
 <section id="atuacao">
   <div class="section-inner">
-    <div class="section-tag" style="color:#111;opacity:.7;">Onde atuamos</div>
-    <div class="section-title" style="color:#111;">Cobertura em Todo o Brasil</div>
-    <div class="section-sub" style="color:#333;">Com foco na Grande São Paulo, Jundiaí e interior do estado, atendemos também todo o território nacional.</div>
+    <div class="section-tag" style="color:#e86c00;">Onde atuamos</div>
+    <div class="section-title" style="color:#fff;">Cobertura em Todo o Brasil</div>
+    <div class="section-sub" style="color:#9ca3af;">Com foco na Grande São Paulo, Jundiaí e interior do estado, atendemos também todo o território nacional.</div>
     <div class="areas-grid">
-      <div class="area-pill" style="color:#111;font-weight:700;">Grande São Paulo</div>
-      <div class="area-pill" style="color:#111;font-weight:700;">Jundiaí e Região</div>
-      <div class="area-pill" style="color:#111;font-weight:700;">Interior de SP</div>
-      <div class="area-pill" style="color:#111;font-weight:700;">Litoral Paulista</div>
-      <div class="area-pill" style="color:#111;font-weight:700;">Sul do Brasil</div>
-      <div class="area-pill" style="color:#111;font-weight:700;">Região Sudeste</div>
-      <div class="area-pill" style="color:#111;font-weight:700;">Centro-Oeste</div>
-      <div class="area-pill" style="color:#111;font-weight:700;">Todo o Brasil</div>
+      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Grande São Paulo</div>
+      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Jundiaí e Região</div>
+      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Interior de SP</div>
+      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Litoral Paulista</div>
+      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Sul do Brasil</div>
+      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Região Sudeste</div>
+      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Centro-Oeste</div>
+      <div class="area-pill" style="color:#fff;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);">Todo o Brasil</div>
     </div>
-    <div class="map-note" style="background:#111;color:#fff;">🚛 Precisando de transporte fora de SP? Entre em contato — atendemos todo o Brasil!</div>
+    <div class="map-note" style="background:var(--yellow);color:#111;">🚛 Precisando de transporte fora de SP? Entre em contato — atendemos todo o Brasil!</div>
   </div>
 </section>
 
